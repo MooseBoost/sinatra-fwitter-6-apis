@@ -9,9 +9,9 @@
     <div class="container">
       <h1><a href="/">Welcome to Fwitter!</a></h1>
 
-      <% if signed_in? %> <!-- If the user is signed in, display their user name and a link to sign out -->
+      <% if signed_in? %>
         <p><%= current_user.username %></a> | <a href="/sign-out">Sign Out</a></p>
-      <% elsif !@signin_page %> <!-- In our controller, we create an instance variable called @signin_page when rendering the signin page. That way, we don't show this link on that page.  -->
+      <% elsif !@signin_page %>
         <a href="/sign-in">Sign In</a>
       <% end %>
 

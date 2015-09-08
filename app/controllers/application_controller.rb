@@ -25,9 +25,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    @tweets = Tweet.all
-    @user = current_user
-    erb :index
+    if signed_in?
+      @tweets = Tweet.all
+      @user = current_user
+      erb :index
+    else
+      redirect '/sign-in'
+    end
   end
 
   get '/tweet' do
