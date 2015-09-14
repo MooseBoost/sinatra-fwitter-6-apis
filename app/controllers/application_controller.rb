@@ -40,7 +40,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/tweet' do
-    Tweet.create(:user_id => params[:user_id], :status => params[:status])
+    tweet = Tweet.new(:user => current_user, :status => params[:status])
     redirect '/'
   end
 
@@ -67,7 +67,7 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/tweet'
     else
-      redirect '/signin'
+      redirect '/sign-in'
     end
   end
 

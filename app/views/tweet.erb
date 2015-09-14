@@ -1,7 +1,6 @@
 <% if logged_in? %> 
   <h2>Add a tweet</h2>
   <form action="/tweet" method="POST">
-  <p><strong>User:</strong> <%= @user.username %> <input type="hidden" name="user_id" value="<%= @user.id %>"></p>
   <p><strong>Status:</strong> <input type="text" name="status"></p>
   <input class="btn btn-primary" type="submit">
   </form>
