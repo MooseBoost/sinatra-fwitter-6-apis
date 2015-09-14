@@ -37,7 +37,7 @@ Check out the documenation for the `twilio-ruby` gem [here](https://github.com/t
 
 We'll need to create a new instance of the Twilio::REST::Client using our account_sid and auth_token. You can find your information [here](https://www.twilio.com/user/account/developer-tools/api-explorer/message-create). Since we don't want to include that information on Github, we're using a get called `dotenv` to hide that information. Create a file called `.env` in the root of your project and define two constants: `ACCOUNT_SID` and `AUTH_TOKEN`. They'll get loaded automatically in your application controller without being checked into git. 
 
-### Adding a Field to Our Form
+### Updating our Form
 
 Let's add an optional field to our new tweet form called "phone_number". If a user fills it out, we'll text that message to whatever number they entered. In the `tweet.erb` file, add a text field with a name of `phone_number`
 
@@ -49,3 +49,5 @@ Let's add an optional field to our new tweet form called "phone_number". If a us
   <input class="btn btn-primary" type="submit">
   </form>
 ```
+
+### 
