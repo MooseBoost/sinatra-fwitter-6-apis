@@ -22,10 +22,30 @@ Today, we'll be using the [Twilio](https://www.twilio.com/) API to allow our Fwi
 
 ### Setup
 
-Fork and clone this repository to get started! **Note** - you'll be working with API keys today. **Do not push these keys to Github.** Hackers comb Github and will comprimise your account security. 
+Fork and clone this repository to get started! 
 
-### Part 1: Do Some Stuff
 
-## Resources
+### Setting Up The API
 
-* [Stack Exchange](http://www.stackexchange.com) - [Some Question on Stack Exchange](http://www.stackexchange.com/questions/123)
+First, you'll need to sign up for a Twilio account [here](https://www.twilio.com/try-twilio). It's free to sign up for a test account - to get the full features, you'll need to pay. 
+
+Many APIs have Ruby wrappers that we can use, and Twilio is no exception. Add the gem `twilio-ruby` to your Gemfile and run `bundle install`. 
+
+Every API functions a little bit differnetly, so it's important to get used to reading the documenation. Some APIs are very well documented, others are not. In any case, someone wrote this code for you to use - be grateful for them! If you find bugs or errors in the documentation, you can raise an issue or submit a pull request! 
+
+Check out the documenation for the `twilio-ruby` gem [here](https://github.com/twilio/twilio-ruby/blob/master/README.md). 
+
+We'll need to create a new instance of the Twilio::REST::Client using our account_sid and auth_token. You can find your information [here](https://www.twilio.com/user/account/developer-tools/api-explorer/message-create). Since we don't want to include that information on Github, we're using a get called `dotenv` to hide that information. Create a file called `.env` in the root of your project and define two constants: `ACCOUNT_SID` and `AUTH_TOKEN`. They'll get loaded automatically in your application controller without being checked into git. 
+
+### Adding a Field to Our Form
+
+Let's add an optional field to our new tweet form called "phone_number". If a user fills it out, we'll text that message to whatever number they entered. In the `tweet.erb` file, add a text field with a name of `phone_number`
+
+```ERB
+  <h2>Add a tweet</h2>
+  <form action="/tweet" method="POST">
+  <p><strong>Status:</strong> <input type="text" name="status"></p>
+  <p><strong>Phone Number (Optional): </strong> <input type="text" name="phone_number"></p>
+  <input class="btn btn-primary" type="submit">
+  </form>
+```
