@@ -1,4 +1,4 @@
 .DS_STORE
 *ds_store
 *.db
-env.rb
+.env

@@ -1,10 +1,5 @@
 # Sinatra Fwitter 6 -  APIs
 
-## Outline
- 1. Explain how APIs can be used to extend the functionality of our programs. 
- 2. Add instructions for signing up for Twilio.
- 3. Include the `twilio-ruby` gem into the Gemfile. 
- 4. Use Twilio to send a text message when the user submits their form. 
 
 ## Objectives
 
