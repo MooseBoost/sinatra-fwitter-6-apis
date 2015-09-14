@@ -1,4 +1,4 @@
-<% if signed_in? %> 
+<% if logged_in? %> 
   <h2>Add a tweet</h2>
   <form action="/tweet" method="POST">
   <p><strong>User:</strong> <%= @user.username %> <input type="hidden" name="user_id" value="<%= @user.id %>"></p>

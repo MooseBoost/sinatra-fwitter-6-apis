@@ -9,7 +9,7 @@
     <div class="container">
       <h1><a href="/">Welcome to Fwitter!</a></h1>
 
-      <% if signed_in? %>
+      <% if logged_in? %>
         <p><%= current_user.username %></a> | <a href="/sign-out">Sign Out</a></p>
       <% elsif !@signin_page %>
         <a href="/sign-in">Sign In</a>

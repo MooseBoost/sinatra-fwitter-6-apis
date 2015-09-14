@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
-    def signed_in?
+    def logged_in?
       session[:user_id]
     end
 
@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    if signed_in?
+    if logged_in?
       @tweets = Tweet.all
       @user = current_user
       erb :index
