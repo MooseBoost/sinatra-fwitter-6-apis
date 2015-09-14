@@ -11,7 +11,7 @@
 
 APIs, or Application Programming Interfaces, allow us to programatically interact with other Applications. Ever see a live Twitter timeline on a different website? How about login to an app using your Facebook or Google account? All of this is possible because of APIs. 
 
-Today, we'll be using the [Twilio](https://www.twilio.com/) API to allow our Fwitter uses to text their messages to a friend. 
+Today, we'll be using the [Twilio](https://www.twilio.com/) API to allow our Fwitter users to text their status updates to a friend!
 
 ## Instructions
 
@@ -22,15 +22,15 @@ Fork and clone this repository to get started!
 
 ### Setting Up The API
 
-First, you'll need to sign up for a Twilio account [here](https://www.twilio.com/try-twilio). It's free to sign up for a test account - to get the full features, you'll need to pay. For example, you'll only be able to send text messages to yourself using the demo account. 
+First, you'll need to sign up for a Twilio account [here](https://www.twilio.com/try-twilio). It's free to sign up for a test account - to get the full features, you'll need to upgrade to a paid account. Test accounts only allow you to send messages to the number you sign up with - for the purporses of this walk through, that'll be fine.
 
 Many APIs have Ruby wrappers that we can use, and Twilio is no exception. Add the gem `twilio-ruby` to your Gemfile and run `bundle install`. 
 
-Every API functions a little bit differnetly, so it's important to get used to reading the documenation. Some APIs are very well documented, others are not. In any case, someone wrote this code for you to use - be grateful for them! If you find bugs or errors in the documentation, you can raise an issue or submit a pull request! 
+Each API functions a little bit differnetly, so it's important to get used to reading the documenation. Some APIs are very well documented, others are not so well documented. In any case, someone wrote this code for you to use - be grateful for them! If you find bugs or errors in the documentation, you can raise an issue or submit a pull request! 
 
 Check out the documenation for the `twilio-ruby` gem [here](https://github.com/twilio/twilio-ruby/blob/master/README.md). 
 
-We'll need to create a new instance of the Twilio::REST::Client using our account_sid and auth_token. You can find your information [here](https://www.twilio.com/user/account/developer-tools/api-explorer/message-create). Since we don't want to include that information on Github, we're using a get called `dotenv` to hide that information. Create a file called `.env` in the root of your project and define two constants: `ACCOUNT_SID` and `AUTH_TOKEN`. 
+We'll need to create a new instance of the Twilio::REST::Client using our `account_sid` and `auth_token`. You can find your information by accessing your account [here](https://www.twilio.com/user/account/developer-tools/api-explorer/message-create). Since we don't want to include that information on Github (because hackers), so we're using a gem called `dotenv` to hide that information. Create a file called `.env` in the root of your project and define two constants: `ACCOUNT_SID` and `AUTH_TOKEN`. 
 
 ```bash
 ACCOUNT_SID = YOUR_ACCOUNT_SID_HERE 
@@ -38,11 +38,11 @@ AUTH_TOKEN = YOUR_AUTH_TOKEN_HERE
 
 ```
 
-Set They'll get loaded automatically in your application controller without being checked into git. 
+They'll get loaded automatically in your application controller without being checked into git. 
 
 ### Updating our Form
 
-Let's add an optional field to our new tweet form called "phone_number". If a user fills it out, we'll text that message to whatever number they entered. In the `tweet.erb` file, add a text field with a name of `phone_number`
+Let's add an optional field to our new tweet form called `"phone_number"`. If a user fills it out, we'll text that message to whatever number they entered. In the `tweet.erb` file, add a text field with a name of `phone_number`
 
 ```ERB
   <h2>Add a tweet</h2>
@@ -68,7 +68,7 @@ Now, in our application_controller, we'll check to see if the user entered anyth
   end
 ```
 
-If they typed in a phone number, we'll create a new instance of the Twilio Client using the ACCOUNT_SID and AUTH_TOKEN information you entered into your `.env` file.
+If they typed in a phone number, we'll create a new instance of the Twilio Client using the `ACCOUNT_SID` and `AUTH_TOKEN` information you entered into your `.env` file.
 
 ```ruby
   post '/tweet' do
@@ -76,7 +76,6 @@ If they typed in a phone number, we'll create a new instance of the Twilio Clien
     tweet.save
     if params[:phone_number] != ""
 		@client = Twilio::REST::Client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
-		
     end
     redirect '/'
   end
@@ -96,7 +95,7 @@ We'll also help our user by adding a "+1" to the begninning of the phone number.
   end
 ```
 
-Lastly, we'll actually send the message. We'll also append " - sent by taylorswift13 from Fwitter" to the end of the message.
+Lastly, we'll actually send the message. The "from" should be the number Twilio gave you with the account. We'll also append " - sent by my_username from Fwitter" to the end of the message.
 
 ```ruby
   post '/tweet' do
