@@ -1,5 +1,6 @@
 require './config/environment'
 require 'pry'
+Dotenv.load
 
 class ApplicationController < Sinatra::Base
 
@@ -41,6 +42,7 @@ class ApplicationController < Sinatra::Base
 
   post '/tweet' do
     tweet = Tweet.new(:user => current_user, :status => params[:status])
+    tweet.save
     redirect '/'
   end
 
