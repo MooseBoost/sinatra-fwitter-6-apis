@@ -20,6 +20,10 @@ Today, we'll be using the [Twilio](https://www.twilio.com/) API to allow our Fwi
 
 ## Instructions
 
+### Setup
+
+Fork and clone this repository to get started! **Note** - you'll be working with API keys today. **Do not push these keys to Github.** Hackers comb Github and will comprimise your account security. 
+
 ### Part 1: Do Some Stuff
 
 ## Resources
