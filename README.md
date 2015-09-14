@@ -9,7 +9,7 @@
 
 ## Overview
 
-APIs, or Application Programming Interfaces, allow us to programatically interact with other Applications. Ever see a live Twitter timeline on a different website? How about login to an app using your Facebook or Google account? All of this is possible because of APIs. 
+APIs, or Application Programming Interfaces, allow us to programmatically interact with other Applications. Ever see a live Twitter timeline on a different website? How about login to an app using your Facebook or Google account? All of this is possible because of APIs. 
 
 Today, we'll be using the [Twilio](https://www.twilio.com/) API to allow our Fwitter users to text their status updates to a friend!
 
@@ -22,13 +22,13 @@ Fork and clone this repository to get started!
 
 ### Setting Up The API
 
-First, you'll need to sign up for a Twilio account [here](https://www.twilio.com/try-twilio). It's free to sign up for a test account - to get the full features, you'll need to upgrade to a paid account. Test accounts only allow you to send messages to the number you sign up with - for the purporses of this walk through, that'll be fine.
+First, you'll need to sign up for a Twilio account [here](https://www.twilio.com/try-twilio). The test account is free - to get the full features, you'll need to upgrade to a paid account. Test accounts only allow you to send messages to the number you sign up with - for the purposes of this walk through, that'll be fine.
 
 Many APIs have Ruby wrappers that we can use, and Twilio is no exception. Add the gem `twilio-ruby` to your Gemfile and run `bundle install`. 
 
-Each API functions a little bit differnetly, so it's important to get used to reading the documenation. Some APIs are very well documented, others are not so well documented. In any case, someone wrote this code for you to use - be grateful for them! If you find bugs or errors in the documentation, you can raise an issue or submit a pull request! 
+Each API functions a little bit differently, so it's important to get used to reading the documentation. Some APIs are very well documented, others are not so well documented. In any case, someone wrote this code for you to use - be grateful for them! If you find bugs or errors in the documentation, you can raise an issue or submit a pull request! 
 
-Check out the documenation for the `twilio-ruby` gem [here](https://github.com/twilio/twilio-ruby/blob/master/README.md). 
+Check out the documentation for the `twilio-ruby` gem [here](https://github.com/twilio/twilio-ruby/blob/master/README.md). 
 
 We'll need to create a new instance of the Twilio::REST::Client using our `account_sid` and `auth_token`. You can find your information by accessing your account [here](https://www.twilio.com/user/account/developer-tools/api-explorer/message-create). Since we don't want to include that information on Github (because hackers), so we're using a gem called `dotenv` to hide that information. Create a file called `.env` in the root of your project and define two constants: `ACCOUNT_SID` and `AUTH_TOKEN`. 
 
@@ -81,7 +81,7 @@ If they typed in a phone number, we'll create a new instance of the Twilio Clien
   end
 ```
 
-We'll also help our user by adding a "+1" to the begninning of the phone number. 
+We'll also help our user by adding a "+1" to the beginning of the phone number. 
 
 ```ruby
   post '/tweet' do
