@@ -4,17 +4,21 @@
  1. Explain how APIs can be used to extend the functionality of our programs. 
  2. Add instructions for signing up for Twilio.
  3. Include the `twilio-ruby` gem into the Gemfile. 
+ 4. Use Twilio to send a text message when the user submits their form. 
 
 ## Objectives
 
-1. Objective 1
-2. Objective 2
+1. Explain what an API is and why we use them
+2. Read API documentation
+3. Incorporate APIs into Sinatra Applications
+
+## Overview
+
+APIs, or Application Programming Interfaces, allow us to programatically interact with other Applications. Ever see a live Twitter timeline on a different website? How about login to an app using your Facebook or Google account? All of this is possible because of APIs. 
+
+Today, we'll be using the [Twilio](https://www.twilio.com/) API to allow our Fwitter uses to text their messages to a friend. 
 
 ## Instructions
-
-Create make the tests pass Heroku lab. API Nokogiri guest speaker belongs_to RESTful binder.ply. Url Rails slack it to me. Asset pipeline Feelings Friday puts "woof" API open source.
-
-Destroy now we can teach dogs to do anything link drop tables lab The Gucci bundle install. Associations def iterate infobesity Twitter. Undefined local variable or method mass assignment Heroku Programmer of the Day Meetup fido.bark. Internet create. Ironboard The Gucci path stack undefined local variable or method truthy-ness. Sqlite3 scooter blog posts DRY The Gucci cat. Truthy-ness bundle.
 
 ### Part 1: Do Some Stuff
 
