@@ -44,7 +44,7 @@ They'll get loaded automatically in your application controller without being ch
 
 Let's add an optional field to our new tweet form called `"phone_number"`. If a user fills it out, we'll text that message to whatever number they entered. In the `tweet.erb` file, add a text field with a name of `phone_number`
 
-```ERB
+```erb
   <h2>Add a tweet</h2>
   <form action="/tweet" method="POST">
   <p><strong>Status:</strong> <input type="text" name="status"></p>
