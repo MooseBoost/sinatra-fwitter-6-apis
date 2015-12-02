@@ -115,3 +115,5 @@ Lastly, we'll actually send the message. The "from" should be the number Twilio 
 ```
 
 And that's it! Test out your application using your phone number. As a bonus, you can add error handling in case the user types in something other than a valid phone number. You can now incorporate APIs into your Sinatra applications!
+
+<a href='https://learn.co/lessons/sinatra-fwitter-6-apis' data-visibility='hidden'>View this lesson on Learn.co</a>
