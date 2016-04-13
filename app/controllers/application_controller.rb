@@ -43,6 +43,15 @@ class ApplicationController < Sinatra::Base
   post '/tweet' do
     tweet = Tweet.new(:user => current_user, :status => params[:status])
     tweet.save
+    if params[:phone_number] != ""
+        @client = Twilio::REST::Client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
+        number = "+1#{params[:phone_number]}"
+        @client.messages.create(
+        from: "+12018905320",
+        to: number,
+        body: params[:status] + "\n - sent by #{current_user.username} from Fwitter"
+      )
+    end
     redirect '/'
   end
 
@@ -64,7 +73,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sign-in' do
+    binding.pry
     @user = User.find_by(:username => params[:username])
+
     if @user
       session[:user_id] = @user.id
       redirect '/tweet'
